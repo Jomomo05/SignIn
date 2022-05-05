@@ -12,50 +12,7 @@
         <input asp-for="mail" class="nombre"/>
         <h2>contrasena: </h2>
         <input asp-for="password" class="mes"/>
-        <input id="Submit1" type="submit" value="Traer Datos" />
+        <input id="Submit1" type="submit" value="Sign In" />
     </form>
 </div>
-
-<!--De Aqui para abajo se va aquitar cuando ya todo este funcionando --!>
-<h3>Resultados:</h3>
-        <table class="table table-responsive table-bordered">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>                 
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Listaaplicantes)
-                {
-
-                    <tr>
-                        <td>@Html.DisplayFor(modelItem => item.Correo)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Contrasena)</td>
-                        
-                    </tr>
-                }
-                </tbody>
- </table>
-
-<!-- 
-<div class="everything">
-        <div class="header">
-            <h1>Marvel</h1>
-        </div>
-        <br>
-        <div class="contener">
-            <h2 class="display-4">@ViewData["Mensaje"] </h2>
-        <form method="post">
-         <h2>Tu Nombre: </h2>
-        <input asp-for="mail"/>
-        <h2>Mes de nacimiento (En espanol y en letra): </h2>
-        <input asp-for="password"/>
-        <input type="submit" value="Conoce"/>
-    </form>
-        </div>
-        
-        
-    </div>
-    -->
 

@@ -36,26 +36,11 @@ namespace prueba2.Pages
 
             aplicantes usr1 = new aplicantes();
             Listaaplicantes = new List<aplicantes>();
-            check = int.Parse(cmd.ExecuteScalar().ToString());
-            if (check > 0)
-            {
-                Response.Redirect("pag1"); //Aqui va a ir la pag de Log In
-            }
-            //Borrar desde aqui
-            using (var reader = cmd.ExecuteReader())
-            {
-
-
-                while (reader.Read())
-                {
-                    usr1 = new aplicantes();
-                    usr1.Correo = reader["correo"].ToString();
-                    usr1.Contrasena = reader["contrasena"].ToString();
-                    Listaaplicantes.Add(usr1);
-                }
-            }
-            //A aqui si funciona
-            conexion.Dispose();
+           
+            
+            cmd.ExecuteReader(); //Se ejecuta la consulta
+            
+            conexion.Dispose(); // Se cierra la conexion
 
         }
 
