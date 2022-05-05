@@ -25,10 +25,10 @@ namespace prueba2.Pages
             MySqlConnection conexion = new MySqlConnection(connectionString);
             conexion.Open();
 
-            //MySqlCommand cmd = new MySqlCommand();
+            //Desde aqui inicia los comandos SQL
             MySqlCommand cmd = new MySqlCommand(connectionString, conexion);
             cmd.Connection = conexion;
-            cmd.CommandText = "select * from aplicantes where correo=@mail and contrasena=@password;";
+            cmd.CommandText = "INSERT INTO aplicantes(correo, contrasena) VALUES(@mail,@password);";
 
             cmd.Parameters.AddWithValue("@mail", mail);
             cmd.Parameters.AddWithValue("@password", password);
@@ -39,7 +39,7 @@ namespace prueba2.Pages
             check = int.Parse(cmd.ExecuteScalar().ToString());
             if (check > 0)
             {
-                Response.Redirect("pag1");
+                Response.Redirect("pag1"); //Aqui va a ir la pag de Log In
             }
             //Borrar desde aqui
             using (var reader = cmd.ExecuteReader())
